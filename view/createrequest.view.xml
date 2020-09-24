@@ -1,0 +1,51 @@
+<mvc:View controllerName="zovrtemprsrq.controller.createrequest" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" 
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" displayBlock="true" xmlns="sap.m">
+	<App>
+		<pages>
+			<Page id="otrqtCreate" title="OverTime request creation">
+				<content>
+					<l:Grid defaultSpan="L12 M12 S12" width="auto">
+						<l:content>
+							<f:SimpleForm id="otrqtcreateForm" maxContainerCols="2" editable="true" layout="ResponsiveGridLayout" labelSpanL="3" labelSpanM="3"
+								emptySpanL="4" emptySpanM="4" columnsL="1" columnsM="1">
+								<f:content>
+									<Label text="Employee Name" required="true"/>
+									<MultiInput id="empname" valueHelpRequest="onValueHelpRequest"  enabled="{vlstate>/enabled}"
+									maxTokens="1"
+									valueState="{vlstate>/EmplyState}"
+									valueStateText="{vlstate>/valueStateText1}"
+									showValueStateMessage="true" /> 
+									<Label text="Date" required="true"/>
+									<DatePicker id="myDate"
+									valueFormat="YYYYMMdd"
+									displayFormat="long"
+									valueState="{vlstate>/date}"
+									valueStateText="{vlstate>/valueStateText2}"
+									showValueStateMessage="true"
+									/>
+									<Label text="Hours" required="true"/>
+									<MaskInput id="Hours" 
+									enabled="{vlstate>/enabled}" 
+									mask="99" placeholderSymbol="_" 
+									valueState="{vlstate>/hours}"
+									valueStateText="{vlstate>/valueStateText3}"
+									showValueStateMessage="true"/>
+									<Label text="Comments" required="true"/>
+									<TextArea id="inputcomments" valueState="{vlstate>/comments}" valueStateText="{vlstate>/valueStateText4}" showValueStateMessage="true"
+										rows="10" cols="8"/>
+								</f:content>
+							</f:SimpleForm>
+						</l:content>
+					</l:Grid>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+						<Button id="Save" text="Post" type="Accept" press="handlesave"/>
+						<Button id="Reset" text="Reset" type="Emphasized" press="handlereset"/>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>
